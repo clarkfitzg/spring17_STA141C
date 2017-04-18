@@ -65,3 +65,22 @@ def crazy_make_names_list():
 
 
 %timeit crazy_make_names_list()
+
+
+# The right way to find an intersection:
+n1, n2 = names_list[:15000], names_list[14000:]
+
+%timeit middle = set(n1).intersection(n2)
+
+
+def crazy_intersect(a, b):
+    """
+    DON'T do this :)
+    """
+    both = []
+    for x in a:
+        if x in b:
+            both.append(x)
+
+
+%timeit middle = crazy_intersect(n1, n2)
