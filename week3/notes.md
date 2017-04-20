@@ -10,7 +10,17 @@ Baby names:
 
 https://www.ssa.gov/oact/babynames/limits.html
 
-## Requests
+## Requests 
+
+Discussion 2
+
+- Imports from same directory
+- Saving stopwords
+- Report expectations
+
+## Requests 
+
+Discussion 1
 
 - How to structure file with `main()`
 - Calling one function within another

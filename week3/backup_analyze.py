@@ -33,14 +33,19 @@ zf.extract("yob2015.txt")
 
 
 
+import pandas as pd
+
+pd
 
 
 fields = ("name", "gender", "count")
 
 # A file pointer
+
 with open("yob2015.txt") as f:
     reader = csv.DictReader(f, fieldnames=fields)
     names_hash = {row["name"]: int(row["count"]) for row in reader}
+
 
 
 names_list = list(names_hash.keys())
@@ -48,10 +53,15 @@ names_list = list(names_hash.keys())
 
 # Run in Ipython
 
-%timeit "Jackie" in names_hash
 
-# This is 8000 times slower!!
-%timeit "Jackie" in names_list
+
+# This is O(1)
+# AWESOME!
+%timeit "Zhuoer" in names_hash 
+
+# This is O(n)
+# TERRIBLE!! :(
+%timeit "Zhuoer" in names_list
 
 
 def make_names_deque():
