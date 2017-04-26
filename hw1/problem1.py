@@ -3,6 +3,18 @@ import re
 special_chars = re.compile(r"[?,!.()'\":]")
 dashes = re.compile("-")
 
+charlist = "? , ! . ( ) ' \" :".split()
+
+
+# This is marginally slower on my laptop. But definitely easier to read!
+def otherway(str_in):
+    # Without regex
+    str_out = str_in
+    for char in charlist:
+        str_out = str_out.replace(char, " ")
+    return  str_out
+    
+
 
 def preprocess( str_in ):
     """
