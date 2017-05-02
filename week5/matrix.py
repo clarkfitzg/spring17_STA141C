@@ -14,6 +14,23 @@ actual = np.linalg.norm(A, ord="fro")
 expected == actual
 
 
+# Loading text
+############################################################
+
+# Warning- this has 100 million edges
+
+# Too slow and memory hog
+#links = np.loadtxt("/Users/clark/data/enwiki-2013.txt.gz")
+
+import pandas as pd
+
+# Much more efficient
+links = pd.read_table("/Users/clark/data/enwiki-2013.txt.gz", sep = " ",
+        dtype = np.int32, skiprows = 4, engine = "c",
+        names = ("from", "to")
+        )
+
+
 # CSR sparse matrix
 ############################################################
 
