@@ -1,8 +1,8 @@
 import numpy as np
 
 from sklearn.datasets import load_svmlight_file
-from sklearn.model_selection import train_test_split
 
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
 
 from sklearn.preprocessing import normalize, scale
@@ -18,7 +18,6 @@ w = np.random.randn(X.shape[1])
 x0w = X[0, ].dot(w.T)
 
 
-Xtrain, Xtest = train_test_split(X, test_size = 0.2)
 
 
 def mse(ypredict, ytrue):
@@ -54,3 +53,28 @@ model2 = Ridge(alpha = 1.0)
 model2.fit(X2, y2)
 
 
+Xtrain, Xtest = train_test_split(X, test_size = 0.2)
+
+Xtrain, Xtest = train_test_split(X, test_size = 0.2)
+
+
+
+X, y  = load_svmlight_file("/Users/clark/data/E2006.test.bz2")
+
+
+
+model = Ridge(alpha = 1.0)
+
+model.fit(X, y)
+
+
+# Closure method to keep variables alive
+def make_gradient_descender(X, y, *args):
+    XtX = X.T.dot(X)
+    Xty = X.T.dot(y)
+
+    def gradient_descent(*args):
+        for i in range(50):
+            # Do something with XtX, Xty
+
+    return gradient_descent
