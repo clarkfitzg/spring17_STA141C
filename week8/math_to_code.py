@@ -9,6 +9,8 @@ w0 = np.zeros(X.shape[1])
 def f(w, lamb):
     """
     Eq. (2) in problem 2
+
+    Non-vectorized, slow
     """
     total = 0
     nrows = X.shape[0]
@@ -24,6 +26,8 @@ f(w0, 1)
 def f2(w, lamb):
     """
     Eq. (2) in problem 2
+
+    Vectorized (no explicit loops), fast
     """
     yxTw = y * X.dot(w)
     firstpart = np.log(1 + np.exp(-yxTw))
