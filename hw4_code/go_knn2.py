@@ -1,3 +1,4 @@
+import multiprocessing as mp
 from sklearn.datasets import load_svmlight_file
 import numpy as np
 import time
@@ -63,8 +64,10 @@ def go_nn_kdtree(eps=0, parallel=True):
     n_jobs = 1
     if parallel:
         n_jobs = -1
+
     neighbors = tree.query(Xtest, eps=eps, n_jobs=n_jobs)
     predictions = ytrain[neighbors[1]]
+
     acc = np.equal(predictions, ytest).mean()
     return acc
 
