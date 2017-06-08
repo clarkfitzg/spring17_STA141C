@@ -13,6 +13,15 @@ ytrain = traindata[1]
 Xtest = testdata[0].todense()
 ytest = testdata[1]
 
+"""
+data to map over:
+data = [
+(Xtrain, ytrain, Xtest_1, ytest_1)
+(Xtrain, ytrain, Xtest_2, ytest_2)
+(Xtrain, ytrain, Xtest_3, ytest_3)
+(Xtrain, ytrain, Xtest_4, ytest_4)
+]
+"""
 
 @jit(nopython=True)
 def go_nn_jit(Xtrain, ytrain, Xtest, ytest):
@@ -93,6 +102,6 @@ print("Accuracy %lf Time %lf secs.\n"%(acc, time.time()-start_time))
 
 
 start_time = time.time()
-acc = go_nn_kdtree(eps=2)
+acc = go_nn_kdtree(eps=0.1)
 print("Parallel Approximate KDtree:")
 print("Accuracy %lf Time %lf secs.\n"%(acc, time.time()-start_time)) 
